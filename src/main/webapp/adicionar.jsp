@@ -26,27 +26,26 @@
 <div class="container w-50">
 	<div class="border border-1 m-5 rounded-3">
 	<h1 class="mb-4 text-start mt-5 ms-5">Adicionar usuário</h1>
+	<input type="hidden" value=${id} name="id">
 	
-	<form class="p-5 ">
+	<form class="p-5" method="post" action="ServletProjetoFinal">
   <div class="mb-3">
     <label for="nome" class="form-label">Nome</label>
-    <input type="text" class="form-control" id="nome" aria-describedby="emailHelp">
+    <input type="text" class="form-control" value="${nome}" id="nome" name="nome" aria-describedby="emailHelp">
     
   </div>
   <div class="mb-3">
     <label for="email" class="form-label">Email</label>
-    <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+    <input type="email" class="form-control" value="${email}" id="email" name="email" aria-describedby="emailHelp">
    
   </div>
   <div class="mb-3">
     <label for="pais" class="form-label">País</label>
-    <input type="text" class="form-control" id="pais" aria-describedby="emailHelp">
-   
+    <input type="text" class="form-control" value="${pais}" id="pais" name="pais" aria-describedby="emailHelp">
   </div>
-  <a href="index.html"><button type="submit" class="btn btn-secondary mb-5">Salvar</button></a>
+  <a href="index.jsp"><button type="submit" class="btn btn-secondary mb-5">Salvar</button></a>
 </form>
 	</div>
 </div>
-
 </body>
 </html>

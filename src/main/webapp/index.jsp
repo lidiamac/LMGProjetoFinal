@@ -1,10 +1,12 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Maven</title>
+<title>Usuário</title>
 <link rel="stylesheet" href="webjars/bootstrap/5.1.3/css/bootstrap.min.css">
 </head>
+
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-secondary bg-gradient mb-5">
   <div class="container-fluid">
@@ -27,7 +29,7 @@
 
 <h1 class="mb-4 text-center">Lista de usuários</h1>
 
-<a href="adicionar.html"><button type="button" class="btn btn-outline-secondary mb-5">Adicionar usuário</button></a>
+<a href="adicionar.jsp"><button type="submit" class="btn btn-outline-secondary mb-5">Adicionar usuário</button></a>
 
 <table class="table">
   <thead>
@@ -39,40 +41,21 @@
       <th scope="col-4" class="text-center">Ações</th>
     </tr>
   </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Raphael</td>
-      <td>raphael@teste.com</td>
-      <td>Brasil</td>
-      <td class="text-center">
-      	<a href="#">Alterar</a>
-      	<a href="#">Remover</a>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Leonardo</td>
-      <td>leonardo@teste.com.br</td>
-      <td>Bulgária</td>
-      <td class="text-center">
-      	<a href="#">Alterar</a>
-      	<a href="#">Remover</a>
-      </td>
-      
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Ivo</td>
-      <td>ivo@teste.com.br</td>
-      <td>Botsuana</td>
-      <td class="text-center">
-      	<a href="#">Alterar</a>
-      	<a href="#">Remover</a>
-      </td>
-      
-    </tr>
-  </tbody>
+  
+
+  <c:forEach items="${usuario}" var="user" varStatus="i" begin="1">  
+	    <tr> 
+	      <th scope="row">${user.id}</th>
+	      <td>${user.nome}</td>
+	      <td>${user.email}</td>
+	      <td>${user.pais}</td>
+	      <td class="text-center">
+	      	<a href="?id=${i.index}&opcao=1">Alterar</a>
+	      	<a href="?id=${i.index}&opcao=0">Remover</a>
+	      </td>
+	    </tr>
+    </c:forEach>  
+
 </table>
 </div>
 
