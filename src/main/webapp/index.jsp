@@ -43,8 +43,9 @@
   </thead>
   
 
-  <c:forEach items="${usuario}" var="user" varStatus="i" begin="1">  
-	    <tr> 
+  <c:forEach items="${usuario}" var="user" varStatus="i" begin="1">
+  
+	    <tr>  
 	      <th scope="row">${user.id}</th>
 	      <td>${user.nome}</td>
 	      <td>${user.email}</td>

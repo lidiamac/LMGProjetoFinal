@@ -25,29 +25,23 @@ public class Container {
 	
 
 	public void removerUsuario(int id) {
-		//for(User u : usuario) {
-			//if (u.getId() == id){
-				usuario.remove(id);
-			//} else {
-				//System.out.println("NÃO EXISTE ESSE USUARIO!");
-			//}
-		//}
+		usuario.remove(id);
 	}
 	
 	public List<User> buscarUsuario() {
 		return usuario;
 	}
 	
-	public User buscarUsuario(int indice) {
-		return usuario.get(indice);
+	public User buscarUsuario(int id) {
+		return usuario.get(id);
 	}
 
 	
 	public void alterarUsuario(int id, String nome, String email, String pais) {
-		User user = buscarUsuario(id);
-		user.setNome(nome);
-		user.setEmail(email);
-		user.setPais(pais);
+		User u = buscarUsuario(id);
+		u.setNome(nome);
+		u.setEmail(email);
+		u.setPais(pais);
 		
 		//se deseja alterar o nome, setNome("Passar aqui o novo nome") 	
 		//se deseja alterar o email, setEmail("Passar aqui o novo email") 

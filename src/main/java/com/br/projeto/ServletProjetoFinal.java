@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/ServletProjetoFinal")
 public class ServletProjetoFinal extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	public static Container c = new Container();
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -42,8 +43,9 @@ public class ServletProjetoFinal extends HttpServlet {
 				
 				request.getRequestDispatcher("/adicionar.jsp").forward(request, response);
 			}
+			request.setAttribute("usuario", c.buscarUsuario());
 		}
-		request.setAttribute("usuario", c.buscarUsuario());
+		
 		request.getRequestDispatcher("/").forward(request, response);
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
@@ -52,9 +54,9 @@ public class ServletProjetoFinal extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Container c = new Container();
 		
-		if(request.getParameter("nome") != null && request.getParameter("email") != null && request.getParameter("pais") != null){
+		
+		if((request.getParameter("nome") != null) && (request.getParameter("email") != null) && (request.getParameter("pais") != null)){
 			String id = request.getParameter("id");
 			String nome = request.getParameter("nome");
 			String email = request.getParameter("email");
